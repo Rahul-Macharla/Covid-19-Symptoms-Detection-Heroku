@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>COVID-19 SYMPTOMS CHECKER MACHINE LEARNING MODEL</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+
+<body style="color:rgb(8, 124, 134); zoom: 0.88;">
+ <div class="login">
+  <h1 style="font-size: 2rem; padding-bottom: none; text-decoration: underline; ">COVID-19 SYMPTOMS DETECTION</h1>
+  <br/>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" class='control'>
+    
+        <label for="Breathing Problem">Choose Breathing Problem:</label> 
+        <select id="cars" name="Breathing Problem" class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+
+        <br/>
+        <br/>
+
+        <label for="Fever">Fever:</label>
+        <select id="dep" name="Fever", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+
+        <label for="Dry Cough" >Dry Cough:</label>
+        <select id="dep" name="Dry Cough", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Sore throat">Sore throat:</label>
+        <select id="dep" name="Sore throat", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+
+        <br/>
+        <br/>
+
+        <label for="Running Nose">Running Nose:</label>
+        <select id="dep" name="Running Nose", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Asthma">Asthma:</label>
+        <select id="dep" name="Asthma", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Chronic Lung Disease">Chronic Lung Disease:</label>
+        <select id="dep" name="Chronic Lung Disease", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Headache">Headache:</label>
+        <select id="dep" name="Headache", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Heart Disease">Heart Disease:</label>
+        <select id="dep" name="Heart Disease", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Diabetes">Diabetes:</label>
+        <select id="dep" name="Diabetes", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Hyper Tension">Hyper Tension:</label>
+        <select id="dep" name="Hyper Tension", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Fatigue">Fatigue:</label>
+        <select id="dep" name="Fatigue", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Gastrointestinal">Gastrointestinal Problem:</label>
+        <select id="dep" name="Gastrointestinal Problem", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Abroad travel">Travelled Abroad:</label>
+        <select id="dep" name="Travelled Abroad", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Recent contact with COVID Patient">Contact with COVID Patient:</label>
+        <select id="dep" name="Recent contact with COVID Patient", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Attended Large Gathering">Attended Large Gathering:</label>
+        <select id="dep" name="Attended Large Gathering", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Visited Public Places">Visited Public Exposed Places:</label>
+        <select id="dep" name="Visited Public Places", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Family working in Public Exposed Places">Family working in Public Exposed Places:</label>
+        <select id="dep" name="Family working in Public Exposed Places", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Wearing Masks">Wearing Masks:</label>
+        <select id="dep" name="Wearing Masks", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+
+        <label for="Sanitization from Market">Sanitizing:</label>
+        <select id="dep" name="Sanitizing", class='select' required>
+          <option selected="selected" disabled="disabled">--SELECT AN OPTION--</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <br/>
+        <br/>
+      
+        <br/>
+      <button type="submit" class="btn btn-primary btn-block btn-large" style="margin-top: 1em;">Predict</button>
+    </form>
+    <br/>
+
+    {% if prediction %}
+      {{ prediction }}
+      <br/>
+      <a href='/'><button class="btn btn-small" style="background-color: rgb(21, 168, 65);">Clear</button></a>
+    {%endif%}
+ 
+
+ </div>
+
+</body>
+</html>

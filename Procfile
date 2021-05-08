@@ -1,0 +1,1 @@
+web: gunicorn Symptoms_app:app 
