@@ -27,7 +27,7 @@ body, html {
 }
 
 body{
-  background-image: url("coronavirus-banner.JPG");
+  background-image: url("coronavirus-banner.jpg");
    background-repeat: no-repeat, repeat;
     background-position: center; /* Center the image */
     background-size: cover;}
